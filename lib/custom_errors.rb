@@ -6,11 +6,12 @@ class Person
   end
 
   def get_married(person)
-    self.partner = person
+        self.partner = person
     if person.class != Person
       begin
-        raise YourCustomError
-        rescue YourCustomError
+        raise PartnerError
+      rescue PartnerError => error
+          puts error.message
       end
     else
       person.partner = self
